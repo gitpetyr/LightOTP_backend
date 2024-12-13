@@ -10,7 +10,7 @@ def read_root():
 @app.get("/register")
 def register_route(userid : str, usertoken : str):
     return {
-            "res" : usermange.UserCheck.register() , 
+            "res" : usermange.UserCheck.add_userRecord(userid,usertoken), 
             "requests" : {
                 "userid" : userid,
                 "usertoken" : usertoken

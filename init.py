@@ -10,6 +10,6 @@ class DatabaseInit():
                         #(userid,usertoken)
                     }
                 }
-            config.userdbConfig.writedb(data)
+            config.userdbConfig.writeDb(data)
 if __name__ == "__main__":
     DatabaseInit()

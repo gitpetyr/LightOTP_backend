@@ -7,10 +7,9 @@ class DatabaseInit():
         def __init__(self):
             data={
                     "userinfo" : {
-                        
+                        #(userid,usertoken)
                     }
                 }
-            with open(config.userdbConfig.userdb_path,"w") as userdb:
-                json.dump(data,userdb)
+            config.userdbConfig.writedb(data)
 if __name__ == "__main__":
     DatabaseInit()

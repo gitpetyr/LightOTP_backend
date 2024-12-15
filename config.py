@@ -2,6 +2,15 @@ import json
 
 userdb_path="userdb.json"
 
+def strcheck(s : str):
+    if len(s)>50:
+        return False
+    strset="qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890"
+    for i in s:
+        if not i in strset:
+            return False
+    return True
+
 class userdbConfig():
     def getDb():
         with open(userdb_path,"r") as f:

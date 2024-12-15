@@ -16,3 +16,13 @@ def register_route(userid : str, usertoken : str):
                 "usertoken" : usertoken
             }
         }
+
+@app.get("/test/checktoken")
+def checkusertoken(userid : str,usertoken :str):
+    return {
+            "res" : usermange.UserCheck.checkUserToken(userid,usertoken),
+            "requests" : {
+                "userid" : userid,
+                "usertoken" : usertoken
+            }
+        }

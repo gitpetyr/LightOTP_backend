@@ -9,20 +9,41 @@ def read_root():
 
 @app.get("/register")
 def register_route(userid: str, usertoken: str):
-    return {
-        "res": usermange.UserCheck.add_userRecord(userid, usertoken),
-        "requests": {
-            "userid": userid,
-            "usertoken": usertoken
+    try:
+        return {
+            "res": usermange.UserCheck.add_userRecord(userid, usertoken),
+            "requests": {
+                "userid": userid,
+                "usertoken": usertoken
+            }
         }
-    }
+    except Exception as e:
+        return {"Fail": "Unknown error.", "debug": str(e)}
 
 @app.get("/test/checktoken")
 def checkusertoken(userid: str, usertoken: str):
-    return {
-        "res": usermange.UserCheck.checkUserToken(userid, usertoken),
-        "requests": {
-            "userid": userid,
-            "usertoken": usertoken
+    try:
+        return {
+            "res": usermange.UserCheck.checkUserToken(userid, usertoken),
+            "requests": {
+                "userid": userid,
+                "usertoken": usertoken
+            }
         }
-    }
+    except Exception as e:
+        return {"Fail": "Unknown error.", "debug": str(e)}
+
+@app.get("/addtotp")
+def add_totp(userid: str, usertoken: str, totpname: str, totpkey: str):
+    try:
+        return {
+            "res": usermange.UserCheck.add_totp(userid, usertoken, totpname, totpkey),
+            "requests": {
+                "userid": userid,
+                "usertoken": usertoken,
+                "totpname": totpname,
+                "totpkey": totpkey
+            }
+        }
+    except Exception as e:
+        return {"Fail": "Unknown error.", "debug": str(e)}

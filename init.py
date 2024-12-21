@@ -1,15 +1,15 @@
-import json,config
+import config
 
-class DatabaseInit():
+class DatabaseInit:
     def __init__(self):
         self.UserDBinit()
-    class UserDBinit():
+
+    class UserDBinit:
         def __init__(self):
-            data={
-                    "userinfo" : {
-                        #(userid,usertoken)
-                    }
-                }
+            data = {
+                "userinfo": {}
+            }
             config.userdbConfig.writeDb(data)
+
 if __name__ == "__main__":
     DatabaseInit()

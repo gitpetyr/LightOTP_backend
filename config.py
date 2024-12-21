@@ -1,23 +1,23 @@
 import json
 
-userdb_path="userdb.json"
+userdb_path = "userdb.json"
 
-def strcheck(s : str):
-    if len(s)>50:
+def strcheck(s: str):
+    if len(s) > 50:
         return False
-    strset="qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890"
+    strset = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890"
     for i in s:
-        if not i in strset:
+        if i not in strset:
             return False
     return True
 
-class userdbConfig():
+class userdbConfig:
+    @staticmethod
     def getDb():
-        with open(userdb_path,"r") as f:
+        with open(userdb_path, "r") as f:
             return json.load(f)
-        return "Fail"
+
+    @staticmethod
     def writeDb(db):
-        with open(userdb_path,"w") as f:
-            json.dump(db,f)
-            return
-        return
+        with open(userdb_path, "w") as f:
+            json.dump(db, f)

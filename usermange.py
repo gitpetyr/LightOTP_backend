@@ -1,5 +1,7 @@
 from hashlib import sha256
 import config
+import AES
+import base64
 
 class UserCheck:
     @staticmethod
@@ -46,6 +48,9 @@ class UserCheck:
             data["totpkeys"][userid] = {}
         if totpname in data["totpkeys"][userid]:
             return {"Fail": "TOTP name already exists."}
-        data["totpkeys"][userid][totpname] = totpkey
+        
+        encrypted_totpkey = AES.encrypt(usertoken, totpkey)
+        
+        data["totpkeys"][userid][totpname] = encrypted_totpkey
         config.userdbConfig.writeDb(data)
         return "Ok"

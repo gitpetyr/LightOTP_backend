@@ -122,8 +122,6 @@ curl -X GET "http://localhost:8000/deltotp?userid=testuser&usertoken=testtoken&t
 
 为了确保用户的TOTP密钥安全，系统采用了以下措施：
 
-1. **Token加密**: 用户密码$usertoken$ 在数据库中散列值加密。
-2. **加密存储**: 所有用户的TOTP密钥在存储前都会使用 用户密码$usertoken$ 进行AES加密。这样即使数据库泄露，攻击者和 LightOTP 均无法直接获取到**明文**的TOTP密钥。
-3. **Token验证**: 每次访问 TOTP 密钥时，LightOTP 都会验证用户密码$usertoken$，确保只有合法用户才能访问其 TOTP 密钥。
-
-温馨提示：用户不要把 $totpkey$ 的过多信息写在 $totpname$ 中。
+1. **Token加密**: 用户密码usertoken 在数据库中散列值加密。
+2. **加密存储**: 所有用户的TOTP密钥在存储前都会使用 用户密码usertoken 进行AES加密。这样即使数据库泄露，攻击者和 LightOTP 均无法直接获取到**明文**的TOTP密钥。
+3. **Token验证**: 每次访问 TOTP 密钥时，LightOTP 都会验证 用户密码usertoken，确保只有合法用户才能访问其 TOTP 密钥。

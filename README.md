@@ -2,6 +2,10 @@
 
 LightOTP_backend 是一个提供轻量级的双因素认证（2FA）系统，提供基于时间的一次性密码（TOTP）功能的后端API。
 
+## 安装 
+
+[参考install.md](./install.md)
+
 ## 功能
 
 - 用户注册
@@ -11,7 +15,7 @@ LightOTP_backend 是一个提供轻量级的双因素认证（2FA）系统，提
 - 获取TOTP列表
 - 删除TOTP密钥
 
-## 安装
+## 如何贡献
 
 1. 克隆项目到本地：
     ```bash
@@ -29,8 +33,6 @@ LightOTP_backend 是一个提供轻量级的双因素认证（2FA）系统，提
     ```bash
     pip install -r requirements.txt
     ```
-
-## 运行
 
 使用以下命令启动服务器：
 ```bash

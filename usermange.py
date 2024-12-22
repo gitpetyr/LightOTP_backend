@@ -83,3 +83,18 @@ class UserCheck:
         
         totpnames = list(data["totpkeys"][userid].keys())
         return {"totpnames": totpnames}
+
+    @staticmethod
+    def del_totp(userid: str, usertoken: str, totpname: str):
+        config.userdbConfig.initDb()  # 初始化数据库
+        data = config.userdbConfig.getDb()
+        if userid not in data["userinfo"]:
+            return {"Fail": "The user does not exist."}
+        if sha256(usertoken.encode("utf-8")).hexdigest() != data["userinfo"][userid]["token"]:
+            return {"Fail": "Invalid token."}
+        if userid not in data["totpkeys"] or totpname not in data["totpkeys"][userid]:
+            return {"Fail": "TOTP name does not exist."}
+        
+        del data["totpkeys"][userid][totpname]
+        config.userdbConfig.writeDb(data)
+        return "Ok"

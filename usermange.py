@@ -1,7 +1,6 @@
 from hashlib import sha256
 import config
 import AES
-import base64
 
 class UserCheck:
     @staticmethod
@@ -54,3 +53,19 @@ class UserCheck:
         data["totpkeys"][userid][totpname] = encrypted_totpkey
         config.userdbConfig.writeDb(data)
         return "Ok"
+
+    @staticmethod
+    def get_totp(userid: str, usertoken: str, totpname: str):
+        config.userdbConfig.initDb()  # 初始化数据库
+        data = config.userdbConfig.getDb()
+        if userid not in data["userinfo"]:
+            return {"Fail": "The user does not exist."}
+        if sha256(usertoken.encode("utf-8")).hexdigest() != data["userinfo"][userid]["token"]:
+            return {"Fail": "Invalid token."}
+        if userid not in data["totpkeys"] or totpname not in data["totpkeys"][userid]:
+            return {"Fail": "TOTP name does not exist."}
+        
+        encrypted_totpkey = data["totpkeys"][userid][totpname]
+        decrypted_totpkey = AES.decrypt(usertoken, encrypted_totpkey)
+        
+        return {"totpkey": decrypted_totpkey}

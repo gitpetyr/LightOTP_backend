@@ -1,5 +1,5 @@
 import json
-import fcntl
+import pyotp
 
 userdb_path = "userdb.json"
 
@@ -40,3 +40,6 @@ class userdbConfig:
     def writeDb(db):
         with open(userdb_path, "w") as f:
             json.dump(db, f)
+
+def getTOTPkey(key: str) -> str:
+    return pyotp.TOTP(key).now()

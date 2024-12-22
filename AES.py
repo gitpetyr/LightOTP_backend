@@ -3,6 +3,10 @@ import base64
 from Crypto.Cipher import AES
 import os
 
+'''
+AES加密封装
+'''
+
 def pad(data: str) -> bytes:
     pad_length = 16 - (len(data) % 16)
     return data.encode('utf-8') + bytes([pad_length] * pad_length)

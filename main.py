@@ -47,3 +47,17 @@ def add_totp(userid: str, usertoken: str, totpname: str, totpkey: str):
         }
     except Exception as e:
         return {"Fail": "Unknown error.", "debug": str(e)}
+
+@app.get("/gettotp")
+def get_totp(userid: str, usertoken: str, totpname: str):
+    try:
+        return {
+            "res": usermange.UserCheck.get_totp(userid, usertoken, totpname),
+            "requests": {
+                "userid": userid,
+                "usertoken": usertoken,
+                "totpname": totpname
+            }
+        }
+    except Exception as e:
+        return {"Fail": "Unknown error.", "debug": str(e)}

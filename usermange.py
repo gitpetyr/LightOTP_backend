@@ -69,3 +69,17 @@ class UserCheck:
         decrypted_totpkey = AES.decrypt(usertoken, encrypted_totpkey)
         
         return {"totpkey": decrypted_totpkey}
+
+    @staticmethod
+    def get_totplist(userid: str, usertoken: str):
+        config.userdbConfig.initDb()  # 初始化数据库
+        data = config.userdbConfig.getDb()
+        if userid not in data["userinfo"]:
+            return {"Fail": "The user does not exist."}
+        if sha256(usertoken.encode("utf-8")).hexdigest() != data["userinfo"][userid]["token"]:
+            return {"Fail": "Invalid token."}
+        if userid not in data["totpkeys"]:
+            return {"Fail": "No TOTP keys found for the user."}
+        
+        totpnames = list(data["totpkeys"][userid].keys())
+        return {"totpnames": totpnames}

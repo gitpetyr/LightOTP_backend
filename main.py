@@ -61,3 +61,16 @@ def get_totp(userid: str, usertoken: str, totpname: str):
         }
     except Exception as e:
         return {"Fail": "Unknown error.", "debug": str(e)}
+
+@app.get("/gettotplist")
+def get_totplist(userid: str, usertoken: str):
+    try:
+        return {
+            "res": usermange.UserCheck.get_totplist(userid, usertoken),
+            "requests": {
+                "userid": userid,
+                "usertoken": usertoken
+            }
+        }
+    except Exception as e:
+        return {"Fail": "Unknown error.", "debug": str(e)}

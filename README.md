@@ -55,7 +55,69 @@ uvicorn main:app --reload --host=0.0.0.0 --port=8000
 
 ## 客户端
 
-暂无，欢迎贡献
+欢迎贡献
+
+提供一个简易客户端
+```python
+import requests
+import getpass
+
+BASE_URL = "http://localhost:8000"
+
+def register(userid, usertoken):
+    response = requests.get(f"{BASE_URL}/register", params={"userid": userid, "usertoken": usertoken})
+    return response.json()
+
+def check_token(userid, usertoken):
+    response = requests.get(f"{BASE_URL}/test/checktoken", params={"userid": userid, "usertoken": usertoken})
+    return response.json()
+
+def add_totp(userid, usertoken, totpname, totpkey):
+    response = requests.get(f"{BASE_URL}/addtotp", params={"userid": userid, "usertoken": usertoken, "totpname": totpname, "totpkey": totpkey})
+    return response.json()
+
+def get_totp(userid, usertoken, totpname):
+    response = requests.get(f"{BASE_URL}/gettotp", params={"userid": userid, "usertoken": usertoken, "totpname": totpname})
+    return response.json()
+
+def get_totp_list(userid, usertoken):
+    response = requests.get(f"{BASE_URL}/gettotplist", params={"userid": userid, "usertoken": usertoken})
+    return response.json()
+
+def delete_totp(userid, usertoken, totpname):
+    response = requests.get(f"{BASE_URL}/deltotp", params={"userid": userid, "usertoken": usertoken, "totpname": totpname})
+    return response.json()
+
+def main():
+
+    action = input("请选择操作: 1. 注册 3. 添加TOTP 4. 获取TOTP 5. 获取TOTP列表 6. 删除TOTP\n")
+
+    userid = input("请输入用户名: ")
+    usertoken = getpass.getpass("请输入密码: ")
+    
+    if action == "1":
+        print(register(userid, usertoken))
+    elif action == "2":
+        print(check_token(userid, usertoken))
+    elif action == "3":
+        totpname = input("请输入TOTP名称: ")
+        totpkey = input("请输入TOTP密钥: ")
+        print(add_totp(userid, usertoken, totpname, totpkey))
+    elif action == "4":
+        totpname = input("请输入TOTP名称: ")
+        print(get_totp(userid, usertoken, totpname))
+    elif action == "5":
+        print(get_totp_list(userid, usertoken))
+    elif action == "6":
+        totpname = input("请输入TOTP名称: ")
+        print(delete_totp(userid, usertoken, totpname))
+    else:
+        print("无效操作")
+
+if __name__ == "__main__":
+    while True:
+        main()
+```
 
 ## 贡献
 

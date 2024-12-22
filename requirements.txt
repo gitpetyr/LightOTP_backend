@@ -10,6 +10,7 @@ idna==3.10
 pycryptodome==3.21.0
 pydantic==2.10.3
 pydantic_core==2.27.1
+pyotp==2.9.0
 python-dotenv==1.0.1
 PyYAML==6.0.2
 setuptools==75.6.0

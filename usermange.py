@@ -68,7 +68,7 @@ class UserCheck:
         encrypted_totpkey = data["totpkeys"][userid][totpname]
         decrypted_totpkey = AES.decrypt(usertoken, encrypted_totpkey)
         
-        return {"totpkey": config.getTOTPkey()}
+        return {"totpkey": config.getTOTPkey(decrypted_totpkey)}
 
     @staticmethod
     def get_totplist(userid: str, usertoken: str):

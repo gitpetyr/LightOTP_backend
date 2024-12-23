@@ -1,9 +1,9 @@
 # LightOTP Backend
 
 [![GitHub license](https://img.shields.io/github/license/gitpetyr/LightOTP_backend?style=flat-square)](LICENSE)
-[![GitHub Repo size](https://img.shields.io/github/repo-size/gitpetyr/LightOTP_backend?style=flat-square&color=3cb371)]
-[![GitHub Repo Languages](https://img.shields.io/github/languages/top/gitpetyr/LightOTP_backend?style=flat-square)]
-[![Build](https://img.shields.io/badge/buildwith-docker-brightgreen)]
+[![GitHub Repo size](https://img.shields.io/github/repo-size/gitpetyr/LightOTP_backend?style=flat-square&color=3cb371)]()
+[![GitHub Repo Languages](https://img.shields.io/github/languages/top/gitpetyr/LightOTP_backend?style=flat-square)]()
+[![Build](https://img.shields.io/badge/buildwith-docker-brightgreen)]()
 
 LightOTP_backend 是一个提供轻量级的双因素认证（2FA）系统，提供基于时间的一次性密码（TOTP）功能的后端API。
 

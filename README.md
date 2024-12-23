@@ -2,7 +2,6 @@
 
 [![GitHub license](https://img.shields.io/github/license/gitpetyr/LightOTP_backend?style=flat-square)](LICENSE)
 ![GitHub Repo size](https://img.shields.io/github/repo-size/gitpetyr/LightOTP_backend?style=flat-square&color=3cb371)
-[![GitHub Star](https://img.shields.io/github/stars/gitpetyr/LightOTP_backend?logo=github)](https://github.com/gitpetyr/LightOTP_backend)
 ![GitHub Repo Languages](https://img.shields.io/github/languages/top/gitpetyr/LightOTP_backend?style=flat-square)
 ![Build](https://img.shields.io/badge/buildwith-docker-brightgreen)
 

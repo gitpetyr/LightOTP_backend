@@ -7,14 +7,12 @@ on:
     branches: [ "main" ]
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
 
-  env:
+    env:
       REGISTRY: 'docker.io'
       IMAGE_NAME: zhongxiaoma/lightotp-backend
-
-  build:
-
-    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4

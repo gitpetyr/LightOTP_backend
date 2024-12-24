@@ -7,9 +7,9 @@
 先安装Docker
 
 ```bash
-$ docker pull zhongxiaoma/lightotp-backend:202412221333
+$ docker pull zhongxiaoma/lightotp-backend:latest
 
-$ docker run -d -p 8000:8000 --name LightOTP_backend zhongxiaoma/lightotp-backend:202412221333
+$ docker run -d -p 8000:8000 --name LightOTP_backend zhongxiaoma/lightotp-backend:latest
 ```
 
 ## 构建方法

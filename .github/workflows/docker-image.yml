@@ -9,9 +9,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     env:
-    REGISTRY: 'docker.io'
-    IMAGE_NAME: zhongxiaoma/lightotp-backend
+      REGISTRY: 'docker.io'
+      IMAGE_NAME: zhongxiaoma/lightotp-backend
+
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image

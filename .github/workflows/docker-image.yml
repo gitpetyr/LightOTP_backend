@@ -1,0 +1,23 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    REGISTRY: 'docker.io'
+      # 使用 GitHub 仓库名作为镜像名称，格式为 < 账户>/< 仓库>
+      # IMAGE_NAME: ${{ github.generator }}
+    IMAGE_NAME: zhongxiaoma/lightotp-backend
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag lightotp-backend:$(date +%s)

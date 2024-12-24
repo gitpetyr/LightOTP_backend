@@ -3,7 +3,7 @@
 [![GitHub license](https://img.shields.io/github/license/gitpetyr/LightOTP_backend?style=flat-square)](LICENSE)
 [![GitHub Repo size](https://img.shields.io/github/repo-size/gitpetyr/LightOTP_backend?style=flat-square&color=3cb371)]()
 [![GitHub Repo Languages](https://img.shields.io/github/languages/top/gitpetyr/LightOTP_backend?style=flat-square)]()
-[!![Github Action](https://github.com/gitpetyr/LightOTP_backend/actions/workflows/docker-image.yml/badge.svg)](action)
+[![Github Action](https://github.com/gitpetyr/LightOTP_backend/actions/workflows/docker-image.yml/badge.svg)](action)
 [![Python3.12](https://img.shields.io/badge/python-3.12-brightgreen)]()
 [![Build](https://img.shields.io/badge/buildwith-docker-brightgreen)]()
 

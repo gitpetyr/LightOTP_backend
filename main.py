@@ -7,7 +7,7 @@ app = FastAPI()
 def read_root():
     return "LightOTP API"
 
-@app.get("/register")
+@app.post("/register")
 def register_route(userid: str, usertoken: str):
     try:
         return {
@@ -20,7 +20,7 @@ def register_route(userid: str, usertoken: str):
     except Exception as e:
         return {"Fail": "Unknown error.", "debug": str(e)}
 
-@app.get("/test/checktoken")
+@app.post("/test/checktoken")
 def checkusertoken(userid: str, usertoken: str):
     try:
         return {
@@ -33,7 +33,7 @@ def checkusertoken(userid: str, usertoken: str):
     except Exception as e:
         return {"Fail": "Unknown error.", "debug": str(e)}
 
-@app.get("/addtotp")
+@app.post("/addtotp")
 def add_totp(userid: str, usertoken: str, totpname: str, totpkey: str):
     try:
         return {
@@ -48,7 +48,7 @@ def add_totp(userid: str, usertoken: str, totpname: str, totpkey: str):
     except Exception as e:
         return {"Fail": "Unknown error.", "debug": str(e)}
 
-@app.get("/gettotp")
+@app.post("/gettotp")
 def get_totp(userid: str, usertoken: str, totpname: str):
     try:
         return {
@@ -62,7 +62,7 @@ def get_totp(userid: str, usertoken: str, totpname: str):
     except Exception as e:
         return {"Fail": "Unknown error.", "debug": str(e)}
 
-@app.get("/gettotplist")
+@app.post("/gettotplist")
 def get_totplist(userid: str, usertoken: str):
     try:
         return {
@@ -75,7 +75,7 @@ def get_totplist(userid: str, usertoken: str):
     except Exception as e:
         return {"Fail": "Unknown error.", "debug": str(e)}
 
-@app.get("/deltotp")
+@app.post("/deltotp")
 def del_totp(userid: str, usertoken: str, totpname: str):
     try:
         return {

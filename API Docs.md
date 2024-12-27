@@ -4,7 +4,7 @@
 
 **URL:** `/register`
 
-**方法:** `GET`
+**方法:** `POST`
 
 **参数:**
 - `userid` (str): 用户ID
@@ -23,7 +23,7 @@ curl -X GET "http://localhost:8000/register?userid=testuser&usertoken=testtoken"
 
 **URL:** `/test/checktoken`
 
-**方法:** `GET`
+**方法:** `POST`
 
 **参数:**
 - `userid` (str): 用户ID
@@ -35,14 +35,14 @@ curl -X GET "http://localhost:8000/register?userid=testuser&usertoken=testtoken"
 
 **示例:**
 ```bash
-curl -X GET "http://localhost:8000/test/checktoken?userid=testuser&usertoken=testtoken"
+curl -X POST "http://localhost:8000/test/checktoken?userid=testuser&usertoken=testtoken"
 ```
 
 ## 3. 添加TOTP
 
 **URL:** `/addtotp`
 
-**方法:** `GET`
+**方法:** `POST`
 
 **参数:**
 - `userid` (str): 用户ID
@@ -56,14 +56,14 @@ curl -X GET "http://localhost:8000/test/checktoken?userid=testuser&usertoken=tes
 
 **示例:**
 ```bash
-curl -X GET "http://localhost:8000/addtotp?userid=testuser&usertoken=testtoken&totpname=testtotp&totpkey=testkey"
+curl -X POST "http://localhost:8000/addtotp?userid=testuser&usertoken=testtoken&totpname=testtotp&totpkey=testkey"
 ```
 
 ## 4. 获取TOTP即时密码
 
 **URL:** `/gettotp`
 
-**方法:** `GET`
+**方法:** `POST`
 
 **参数:**
 - `userid` (str): 用户ID
@@ -76,14 +76,14 @@ curl -X GET "http://localhost:8000/addtotp?userid=testuser&usertoken=testtoken&t
 
 **示例:**
 ```bash
-curl -X GET "http://localhost:8000/gettotp?userid=testuser&usertoken=testtoken&totpname=testtotp"
+curl -X POST "http://localhost:8000/gettotp?userid=testuser&usertoken=testtoken&totpname=testtotp"
 ```
 
 ## 5. 获取TOTP列表
 
 **URL:** `/gettotplist`
 
-**方法:** `GET`
+**方法:** `POST`
 
 **参数:**
 - `userid` (str): 用户ID
@@ -95,14 +95,14 @@ curl -X GET "http://localhost:8000/gettotp?userid=testuser&usertoken=testtoken&t
 
 **示例:**
 ```bash
-curl -X GET "http://localhost:8000/gettotplist?userid=testuser&usertoken=testtoken"
+curl -X POST "http://localhost:8000/gettotplist?userid=testuser&usertoken=testtoken"
 ```
 
 ## 6. 删除TOTP
 
 **URL:** `/deltotp`
 
-**方法:** `GET`
+**方法:** `POST`
 
 **参数:**
 - `userid` (str): 用户ID
@@ -115,7 +115,7 @@ curl -X GET "http://localhost:8000/gettotplist?userid=testuser&usertoken=testtok
 
 **示例:**
 ```bash
-curl -X GET "http://localhost:8000/deltotp?userid=testuser&usertoken=testtoken&totpname=testtotp"
+curl -X POST "http://localhost:8000/deltotp?userid=testuser&usertoken=testtoken&totpname=testtotp"
 ```
 
 ## 安全说明

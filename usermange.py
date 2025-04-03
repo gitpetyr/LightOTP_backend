@@ -6,7 +6,7 @@ import time
 class UserCheck:
     @staticmethod
     def add_userRecord(userid: str, usertoken: str):
-        time.sleep(0.6)  # 添加延迟
+        # time.sleep(0.6)  # 添加延迟
         config.userdbConfig.initDb()  # 初始化数据库
         if not (config.strcheck(userid) and config.strcheck(usertoken)):
             return {
@@ -22,7 +22,7 @@ class UserCheck:
 
     @staticmethod
     def checkUserToken(userid: str, usertoken: str):
-        time.sleep(0.6)  # 添加延迟
+        # time.sleep(0.6)  # 添加延迟
         config.userdbConfig.initDb()  # 初始化数据库
         data = config.userdbConfig.getDb()
         if userid not in data["userinfo"]:
@@ -33,7 +33,7 @@ class UserCheck:
 
     @staticmethod
     def add_totp(userid: str, usertoken: str, totpname: str, totpkey: str):
-        time.sleep(0.6)  # 添加延迟
+        # time.sleep(0.6)  # 添加延迟
         config.userdbConfig.initDb()  # 初始化数据库
         if not (config.strcheck(userid) and config.strcheck(usertoken) and config.strcheck(totpname) and config.strcheck(totpkey)):
             return {
@@ -60,7 +60,7 @@ class UserCheck:
 
     @staticmethod
     def get_totp(userid: str, usertoken: str, totpname: str):
-        time.sleep(0.6)  # 添加延迟
+        # time.sleep(0.6)  # 添加延迟
         config.userdbConfig.initDb()  # 初始化数据库
         data = config.userdbConfig.getDb()
         if userid not in data["userinfo"]:
@@ -77,7 +77,7 @@ class UserCheck:
 
     @staticmethod
     def get_totplist(userid: str, usertoken: str):
-        time.sleep(0.6)  # 添加延迟
+        # time.sleep(0.6)  # 添加延迟
         config.userdbConfig.initDb()  # 初始化数据库
         data = config.userdbConfig.getDb()
         if userid not in data["userinfo"]:
@@ -92,7 +92,7 @@ class UserCheck:
 
     @staticmethod
     def del_totp(userid: str, usertoken: str, totpname: str):
-        time.sleep(0.6)  # 添加延迟
+        # time.sleep(0.6)  # 添加延迟
         config.userdbConfig.initDb()  # 初始化数据库
         data = config.userdbConfig.getDb()
         if userid not in data["userinfo"]:
